@@ -1,0 +1,18 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.About>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+	Layout = "Shared/_Layout.cshtml";
+}
+
+
+<h1>About Page</h1>
+<p>Hi @Model.Value("bodyText")</p>
+@if (Model.HasValue("bodyText"))
+{
+    @Html.Raw(Model.Value("bodyText"))
+}
+else
+{
+    <p>No content found for bodyText.</p>
+}

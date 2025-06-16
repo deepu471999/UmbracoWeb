@@ -1,9 +1,18 @@
-﻿@using Umbraco.Cms.Web.Common.PublishedModels;
-@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Contact>
-@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
 @{
-	Layout = "Shared/_Layout.cshtml";
+    Layout = "Shared/_Layout.cshtml";
 }
 
-<h1>Contact Page</h1>
-@Html.Raw(Model.Value("bodyText"))
+<h1>Contact Us</h1>
+
+@if (TempData["Message"] != null)
+{
+    <div class="message">@TempData["Message"]</div>
+}
+
+<form method="post" action="/umbraco/surface/contactsurface/submitcontact" class="contact-form">
+    <label>Name: <input type="text" name="name" required /></label>
+    <label>Email: <input type="email" name="email" required /></label>
+    <label>Message: <textarea name="message" required></textarea></label>
+    <button type="submit">Send</button>
+</form>

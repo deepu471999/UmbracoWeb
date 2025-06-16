@@ -1,4 +1,10 @@
+using UmbracoPOC.Models;
+
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
+
+
+builder.Services.Configure<AzureFunctionSettings>(builder.Configuration.GetSection("AzureFunction"));
+builder.Services.AddHttpClient();
 
 builder.CreateUmbracoBuilder()
     .AddBackOffice()

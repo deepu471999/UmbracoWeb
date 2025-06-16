@@ -1,20 +1,23 @@
-@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>@Model.Value("pageTitle") ?? "Umbraco Demo Site"</title>
+    <title>@ViewData["Title"] - Umbraco Basic</title>
+    <link rel="stylesheet" href="/css/site.css" />
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/contact">Contact</a></li>
-        </ul>
-    </nav>
+    <header>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/contact">Contact</a>
+        </nav>
+    </header>
     <main>
         @RenderBody()
     </main>
+    <footer>
+        <p>&copy; 2025 Basic Umbraco Site</p>
+    </footer>
 </body>
 </html>

@@ -1,9 +1,7 @@
-﻿@using Umbraco.Cms.Web.Common.PublishedModels;
-@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.Home>
-@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
 @{
-	Layout = "Shared/_Layout.cshtml";
+    Layout = "Shared/_Layout.cshtml";
 }
 
-<h1>Home Page</h1>
-@Html.Raw(Model.Value("bodyText"))
+<h1>Test:@Model.Value("Title")</h1>
+<p>@Model.Value("BodyText")</p>

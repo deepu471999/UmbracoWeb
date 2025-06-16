@@ -3,5 +3,9 @@
     Layout = "Shared/_Layout.cshtml";
 }
 
-<h1>@Model.Value("title")</h1>
-<p>@Model.Value("bodyText")</p>
+@{
+    ViewData["Title"] = "About"; 
+}
+
+<h1>@Model.Value("Title")</h1>
+<p>@Model.Value("BodyText")</p>

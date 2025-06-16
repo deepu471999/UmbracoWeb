@@ -3,6 +3,10 @@
     Layout = "Shared/_Layout.cshtml";
 }
 
+@{
+    ViewData["Title"] = "Contact";
+}
+
 <h1>Contact Us</h1>
 
 @if (TempData["Message"] != null)
@@ -10,9 +14,11 @@
     <div class="message">@TempData["Message"]</div>
 }
 
-<form method="post" action="/umbraco/surface/contactsurface/submitcontact" class="contact-form">
-    <label>Name: <input type="text" name="name" required /></label>
-    <label>Email: <input type="email" name="email" required /></label>
-    <label>Message: <textarea name="message" required></textarea></label>
-    <button type="submit">Send</button>
-</form>
+
+@using (Html.BeginUmbracoForm("SubmitContact", "ContactSurface", FormMethod.Post))
+{
+        <label>Name: <input type="text" name="name" required /></label>
+        <label>Email: <input type="email" name="email" required /></label>
+        <label>Message: <textarea name="message" required></textarea></label>
+        <button type="submit">Send</button>
+}
